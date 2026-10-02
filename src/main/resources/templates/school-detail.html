@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" th:href="@{/CSS/school-detail.css}">
+
+    <title th:text="${school.name}">学校詳細</title>
+</head>
+
+<body>
+
+    <div class="TopContainer">
+        <h1>学校詳細</h1>
+
+        <div class="TopLinks">
+            <a href="/home">ホーム</a>
+            <a href="/Mypage">マイページ</a>
+        </div>
+    </div>
+
+
+    <main class="SchoolDetail">
+
+        <h3>学校の参考画像、学校のwebサイトについては一部公式ではないリンクが表示されたりする場合があります</h3>
+
+        <h1 th:text="${school.name}">
+            高校名
+        </h1>
+
+
+        <div class="SchoolImage">
+
+            <img th:if="${school.imageUrl != null and !school.imageUrl.isBlank()}" th:src="${school.imageUrl}"
+                alt="画像の読み取りに失敗しました">
+
+            <div th:unless="${school.imageUrl != null and !school.imageUrl.isBlank()}" class="NoImage">
+                画像がありません
+            </div>
+
+        </div>
+
+
+        <div class="SchoolInfo">
+
+            <p>
+                <strong>所在地</strong>
+                <span th:text="${school.location}"></span>
+            </p>
+
+        <div class="school-map">
+            <h2>学校の場所</h2>
+
+            <iframe
+                width="100%"
+                height="350"
+                style="border:0"
+                loading="lazy"
+                allowfullscreen
+                th:src="'https://www.google.com/maps/embed/v1/place?key=' + ${googleMapsApiKey} + '&q=' + ${school.location}">
+            </iframe>
+        </div>
+
+            <a th:href="${school.websiteUrl}" target="_blank" rel="noopener noreferrer">
+                <Strong>公式サイト</Strong>
+            </a>
+
+        
+
+        <form th:action="@{/favorites/add}" method="post">
+
+            <input
+                type="hidden"
+                name="schoolCode"
+                th:value="${school.code}">
+
+            <button
+                type="submit"
+                class="favorite-button"
+                th:classappend="${isFavorite} ? ' favorite-active' : ''">
+
+                <span th:text="${isFavorite} ? '♥' : '♡'">
+                    ♡
+                </span>
+
+                <span th:text="${isFavorite} ? 'お気に入り登録済み' : 'お気に入りに追加'">
+                    お気に入りに追加
+                </span>
+
+            </button>
+
+        </form>
+
+        </div>
+
+
+        <a href="/allschool" class="BackButton">
+            ←　戻る
+        </a>
+        <a href="/home" class="BackButton">
+            ホームへ戻る
+        </a>
+
+    </main>
+
+</body>
+
+</html>

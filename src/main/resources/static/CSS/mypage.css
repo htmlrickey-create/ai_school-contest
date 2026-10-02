@@ -1,0 +1,750 @@
+/* =========================
+マイページ
+========================= */
+
+* {
+  box-sizing: border-box;
+  }
+
+body {
+margin: 0;
+padding: 0;
+font-family:
+-apple-system,
+BlinkMacSystemFont,
+"Segoe UI",
+"Hiragino Kaku Gothic ProN",
+"Yu Gothic",
+Meiryo,
+sans-serif;
+background: #f6f8f6;
+color: #333;
+
+}
+
+/* =========================
+プロフィール全体
+========================= */
+
+.Container {
+width: 90%;
+max-width: 760px;
+margin: 60px auto 50px;
+}
+
+/* =========================
+タイトル
+========================= */
+
+.Container::before {
+content: "マイページ";
+display: block;
+
+margin-bottom: 30px;
+
+font-size: 28px;
+font-weight: 700;
+
+color: #252a26;
+
+}
+
+/* =========================
+プロフィール項目
+========================= */
+
+.Name,
+.Age,
+.Grade,
+.prefecture,
+.Email {
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+min-height: 80px;
+
+padding: 20px 24px;
+margin-bottom: 12px;
+
+background: #ffffff;
+
+border: 1px solid #e1e6e2;
+border-radius: 8px;
+
+transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+}
+
+/* メールアドレス */
+
+.Email {
+margin-top: 20px;
+}
+
+/* 項目名 */
+
+.Name h1,
+.Age h1,
+.Grade h1,
+.prefecture h1,
+.Email h1 {
+margin: 0;
+
+font-size: 14px;
+font-weight: 500;
+
+color: #737a75;
+
+}
+
+/* 値 */
+
+.Name span,
+.Age span,
+.Grade span,
+.prefecture span,
+.Email span {
+font-size: 16px;
+font-weight: 600;
+
+color: #2f3b32;
+
+text-align: right;
+
+}
+
+/* ホバー */
+
+.Name:hover,
+.Age:hover,
+.Grade:hover,
+.prefecture:hover,
+.Email:hover {
+border-color: #b9cdbd;
+
+box-shadow:
+    0 2px 8px rgba(40, 60, 45, 0.05);
+
+}
+
+/* =========================
+セクション
+========================= */
+
+section {
+width: 90%;
+max-width: 760px;
+
+
+margin: 50px auto 0;
+
+
+}
+
+section h2 {
+margin: 0 0 20px;
+
+
+font-size: 22px;
+font-weight: 700;
+
+color: #252a26;
+
+
+}
+
+/* =========================
+診断履歴カード
+========================= */
+
+.diagnosis-history {
+padding: 24px;
+margin-bottom: 16px;
+
+background: #ffffff;
+
+border: 1px solid #e1e6e2;
+border-radius: 8px;
+
+transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.diagnosis-history:hover {
+border-color: #b9cdbd;
+
+
+box-shadow:
+    0 2px 8px rgba(40, 60, 45, 0.05);
+
+}
+
+/* 診断日時 */
+
+.diagnosis-history > p:first-child {
+margin: 0 0 20px;
+
+font-size: 13px;
+
+color: #737a75;
+
+
+}
+
+/* 見出し */
+
+.diagnosis-history h3 {
+margin: 18px 0 8px;
+
+
+font-size: 14px;
+font-weight: 600;
+
+color: #737a75;
+
+}
+
+/* おすすめ理由 */
+
+.diagnosis-history h3 + p {
+margin: 0;
+
+font-size: 15px;
+line-height: 1.8;
+
+color: #2f3b32;
+
+
+}
+
+/* =========================
+お気に入り学校
+========================= */
+
+.favorite-school {
+display: flex;
+align-items: center;
+gap: 18px;
+
+
+padding: 20px 24px;
+margin-bottom: 12px;
+
+background: #ffffff;
+
+border: 1px solid #e1e6e2;
+border-radius: 8px;
+
+transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.favorite-school:hover {
+border-color: #b9cdbd;
+
+
+box-shadow:
+    0 2px 8px rgba(40, 60, 45, 0.05);
+
+
+}
+
+/* 学校情報 */
+
+.favorite-school > div {
+flex: 1;
+min-width: 0;
+}
+
+.favorite-school h3 {
+margin: 0 0 6px;
+
+
+font-size: 16px;
+font-weight: 600;
+
+color: #2f3b32;
+
+
+}
+
+.favorite-school p {
+margin: 0;
+
+
+font-size: 13px;
+
+color: #737a75;
+
+
+}
+
+/* =========================
+学校詳細ボタン
+========================= */
+
+.favorite-school > a {
+flex-shrink: 0;
+
+
+padding: 9px 16px;
+
+color: #4f6656;
+
+border: 1px solid #bfcfc3;
+border-radius: 6px;
+
+text-decoration: none;
+
+font-size: 13px;
+
+transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+
+}
+
+.favorite-school > a:hover {
+background: #f1f6f2;
+
+
+border-color: #9eb5a4;
+
+}
+
+/* =========================
+お気に入り削除フォーム
+========================= */
+
+.favorite-delete-form {
+width: auto;
+max-width: none;
+
+
+margin: 0;
+
+text-align: center;
+
+
+}
+
+/* =========================
+削除ボタン
+========================= */
+
+.delete-button {
+padding: 9px 16px;
+
+
+background: #ffffff;
+
+color: #777;
+
+border: 1px solid #d4d4cf;
+border-radius: 6px;
+
+font-size: 13px;
+font-weight: 500;
+
+cursor: pointer;
+
+transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+
+
+}
+
+.delete-button:hover {
+background: #f1f1ee;
+
+
+border-color: #bdbdb7;
+
+color: #444;
+
+
+}
+
+/* =========================
+ログアウト
+========================= */
+
+form[action="/logout"] {
+width: 90%;
+max-width: 760px;
+
+
+margin: 30px auto 0;
+
+text-align: center;
+
+
+}
+
+form[action="/logout"] button {
+padding: 10px 20px;
+
+
+background: #ffffff;
+
+color: #666;
+
+border: 1px solid #d4d4cf;
+border-radius: 6px;
+
+font-size: 13px;
+font-weight: 500;
+
+cursor: pointer;
+
+transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+
+}
+
+form[action="/logout"] button:hover {
+background: #f1f1ee;
+
+
+border-color: #bdbdb7;
+
+color: #444;
+
+}
+
+/* =========================
+モーダル
+========================= */
+
+.modal {
+display: none;
+
+
+position: fixed;
+
+inset: 0;
+
+align-items: center;
+justify-content: center;
+
+padding: 20px;
+
+background: rgba(0, 0, 0, 0.45);
+
+z-index: 1000;
+
+}
+
+/* モーダル本体 */
+
+.modal-content {
+width: 90%;
+max-width: 400px;
+
+
+padding: 30px;
+
+background: #ffffff;
+
+border-radius: 16px;
+
+text-align: center;
+
+box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.2);
+
+animation: modalOpen 0.2s ease;
+
+
+}
+
+.modal-content h2 {
+margin: 0;
+
+
+font-size: 20px;
+
+color: #252a26;
+
+}
+
+.modal-content p {
+margin: 20px 0 25px;
+
+
+font-size: 14px;
+
+line-height: 1.7;
+
+color: #555;
+
+
+}
+
+/* =========================
+モーダルボタン
+========================= */
+
+.modal-buttons {
+display: flex;
+
+gap: 12px;
+
+justify-content: center;
+
+
+}
+
+.cancel-button,
+.confirm-delete-button {
+padding: 10px 20px;
+
+
+border: none;
+border-radius: 8px;
+
+cursor: pointer;
+
+font-size: 13px;
+
+}
+
+/* キャンセル */
+
+.cancel-button {
+background: #eee;
+
+color: #555;
+
+}
+
+.cancel-button:hover {
+background: #ddd;
+}
+
+/* 削除 */
+
+.confirm-delete-button {
+background: #e74c3c;
+
+
+color: #ffffff;
+
+}
+
+.confirm-delete-button:hover {
+background: #d63b2f;
+}
+
+/* =========================
+モーダル表示アニメーション
+========================= */
+
+@keyframes modalOpen {
+
+
+from {
+    opacity: 0;
+
+    transform:
+        translateY(-10px)
+        scale(0.98);
+}
+
+to {
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+}
+
+/* =========================
+ホームに戻る
+========================= */
+
+.Back {
+width: 90%;
+max-width: 760px;
+
+margin: 30px auto 40px;
+
+text-align: center;
+
+font-size: 16px;
+
+
+}
+
+.Back a {
+text-decoration: none;
+
+
+color: #2f3b32;
+
+transition: color 0.2s ease;
+
+
+}
+
+.Back a:hover {
+color: #4f6656;
+}
+
+/* =========================
+スマホ
+========================= */
+
+@media (max-width: 600px) {
+
+
+.Container {
+    width: 92%;
+
+    margin: 35px auto 40px;
+}
+
+.Container::before {
+    margin-bottom: 22px;
+
+    font-size: 24px;
+}
+
+
+/* プロフィール */
+
+.Name,
+.Age,
+.Grade,
+.prefecture,
+.Email {
+    min-height: 70px;
+
+    padding: 18px;
+}
+
+.Name h1,
+.Age h1,
+.Grade h1,
+.prefecture h1,
+.Email h1 {
+    font-size: 13px;
+}
+
+.Name span,
+.Age span,
+.Grade span,
+.prefecture span,
+.Email span {
+    max-width: 55%;
+
+    font-size: 14px;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* セクション */
+
+section {
+    width: 92%;
+
+    margin-top: 40px;
+}
+
+section h2 {
+    margin-bottom: 16px;
+
+    font-size: 20px;
+}
+
+
+/* 診断履歴 */
+
+.diagnosis-history {
+    padding: 20px;
+}
+
+.diagnosis-history > p:first-child {
+    font-size: 12px;
+}
+
+.diagnosis-history h3 {
+    font-size: 13px;
+}
+
+.diagnosis-history h3 + p {
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* お気に入り */
+
+.favorite-school {
+    align-items: flex-start;
+
+    flex-wrap: wrap;
+
+    padding: 18px;
+}
+
+.favorite-school > div {
+    width: 100%;
+
+    flex-basis: 100%;
+}
+
+.favorite-school > a,
+.favorite-delete-form {
+    flex: 1;
+}
+
+.favorite-school > a {
+    text-align: center;
+}
+
+.delete-button {
+    width: 100%;
+}
+
+
+/* モーダル */
+
+.modal-content {
+    padding: 25px 20px;
+}
+
+.modal-buttons {
+    gap: 8px;
+}
+
+.cancel-button,
+.confirm-delete-button {
+    flex: 1;
+
+    padding: 10px;
+}
+
+
+/* ログアウト */
+
+form[action="/logout"] {
+    width: 92%;
+
+    margin-top: 25px;
+}
+
+}

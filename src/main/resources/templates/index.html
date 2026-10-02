@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/top.css">
+    <title>Top</title>
+</head>
+<body>
+
+    <div class="Top-Header">
+        <p>
+            未来探せるAI相談
+        </p>
+        <a href="/login" class="loginButton">
+            ログイン
+        </a>
+    </div>
+
+    <div class="container">
+        <h1>
+            将来の自分が楽しいように
+            <span>AIと共にぴったりな高校を探そう</span>
+        </h1>
+
+    <div class="top">
+         <span>
+            登録ユーザー数: <span th:text="${userCount}"></span>人
+        </span>
+        <h3>
+            新規登録して今すぐ診断 
+        </h3>
+        <a href="/login" class="diagnosisButton">
+            診断をはじめる ➡
+        </a>
+    </div>
+
+        <div class="items">
+            <h1>
+                高校を探すにあたって以下4つの項目情報を必要としています
+            </h1>
+
+            <div class="items-1">
+
+                <span>1</span>
+                <h2>
+                    自分の学力・偏差値
+                </h2>
+                <p>
+                    学力などを参考にしてあなたに適している高校を診断します
+                </p>
+            </div>
+
+            <div class="items-2">
+                <span>2</span>
+                <h2>
+                    積極的に学びたいこと
+                </h2>
+                <p>
+                    学びたいことに対して学ぶことができ、支援している高校を検索します
+                </p>
+            </div>
+
+            <div class="items-3">
+                <span>3</span>
+                <h2>
+                    通学手段
+                </h2>
+                <p>
+                    通学手段を考慮に入れて、最適な高校を提案します
+                </p>
+            </div>
+
+            <div class="items-4">
+                <h2>
+                    4, 将来の夢
+                </h2>
+                <p>
+                    将来の夢を実現することを目標にし、<br>
+                    その夢をかなえることができる可能性のある高校を提案します
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="explanation">
+        <h1>
+            未来探せるAI相談サービスの特徴
+        </h1>
+        <div class="feature-cards">
+
+    <!-- カード1 -->
+    <div class="feature-card">
+
+        <div class="feature-icon">
+            ✓
+        </div>
+
+        <div>
+            <h3>AI診断でおすすめ</h3>
+
+            <p>
+                いくつかの質問に答えるだけで、<br>
+                あなたに合った高校を探せます。
+            </p>
+        </div>
+
+    </div>
+
+
+    <!-- カード2 -->
+    <div class="feature-card">
+
+        <div class="feature-icon">
+            🔍
+        </div>
+
+        <div>
+            <h3>気になる高校をお気に入りに追加</h3>
+
+            <p>
+                気になる高校をお気に入りに追加して、<br>
+                あとから比較できます。
+            </p>
+        </div>
+
+    </div>
+
+
+    <!-- カード3 -->
+    <div class="feature-card">
+
+        <div class="feature-icon">
+            👀
+        </div>
+
+        <div>
+            <h3>高校所在地を一目で確認</h3>
+
+            <p>
+                高校所在地を一目で確認することができるので、<br>
+                通学距離や通学手段を考慮して高校を選ぶことができます。
+            </p>
+        </div>
+
+    </div>
+
+
+    <!-- カード4 -->
+    <div class="feature-card">
+
+        <div class="feature-icon">
+            ♡
+        </div>
+
+        <div>
+            <h3>高校入学のための手助け</h3>
+
+            <p>
+                高校入試・入学のためにAIが高校入試のための勉強法や<br>
+                面接の対策などを提案してくれます。
+            </p>
+        </div>
+
+    </div>
+
+</div>
+<div class="slide-guide">
+    <span>←</span>
+    <p>横にスライドできます</p>
+    <span>→</span>
+</div>
+    </div>
+    
+</body>
+</html>

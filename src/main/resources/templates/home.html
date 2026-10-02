@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>未来の高校探し</title>
+
+    <link rel="stylesheet" th:href="@{/CSS/home.css}">
+</head>
+
+<body>
+
+<!-- =========================
+     ヘッダー
+========================= -->
+<header class="header">
+
+    <div class="header-inner">
+
+        <!-- ロゴ -->
+        <a href="/" class="logo">
+
+            <div>
+                <h1>未来探せるAI診断</h1>
+                <p>自分に合う高校を見つけよう</p>
+            </div>
+        </a>
+
+
+        <!-- ナビゲーション -->
+        <nav class="nav">
+
+            <a href="/" class="active">ホーム</a>
+            <a href="/diagnosis">診断をはじめる</a>
+        </nav>
+
+
+        <!-- マイページボタン -->
+        <div class="auth-buttons">
+
+            <a href="/Mypage" class="acountButton">
+                マイページ
+            </a>
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     ヒーロー
+========================= -->
+<section class="hero">
+
+    <div class="hero-background"></div>
+
+    <div class="hero-inner">
+
+        <!-- 左側 -->
+        <div class="hero-content">
+
+            <p class="hero-subtitle">
+                高校選びを、もっと楽しく。<br>
+                もっとほかの視点から。
+            </p>
+
+            <h2>
+                未来を楽しく過ごすために、<br>
+                <span>ぴったりの高校を。</span>
+            </h2>
+
+            <p class="hero-description">
+                簡単な診断に答えるだけで、<br>
+                あなたに合った高校を3校おすすめします。
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="/diagnosis" class="diagnosis-button">
+                    診断をはじめる
+                    <span>›</span>
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- 右側 -->
+        <div class="hero-card">
+
+            <div class="user-count">
+
+                <div class="user-icon">
+                    👤
+                </div>
+
+                <div>
+                    <p>サービス登録ユーザー数</p>
+                    <strong th:text="${userCount} + '人'"></strong>
+                </div>
+
+            </div>
+
+
+            <h3>以下を基準にして診断します</h3>
+
+            <div class="ranking">
+
+                <div class="ranking-item">
+                    <span>1</span>
+                    <p>偏差値</p>
+                </div>
+
+                <div class="ranking-item">
+                    <span>2</span>
+                    <p>やりたいこと(部活動など)</p>
+                </div>
+
+                <div class="ranking-item">
+                    <span>3</span>
+                    <p>通学手段</p>
+                </div>
+
+                <div class="ranking-item">
+                    <span>4</span>
+                    <p>学校選びで重視することなど...</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     このサービスでできること
+========================= -->
+<section class="features">
+
+    <div class="section-title">
+
+        <h2>このサービスでできること</h2>
+
+        <div class="title-line"></div>
+
+    </div>
+
+
+    <div class="feature-list">
+
+        <!-- カード1 -->
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                ✓
+            </div>
+
+            <div>
+                <h3>AI診断でおすすめ</h3>
+
+                <p>
+                    いくつかの質問に答えるだけで、<br>
+                    あなたに合った高校を探せます。
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- カード2 -->
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🔍
+            </div>
+
+            <div>
+                <h3>自分が住んでいる県の高校を探す</h3>
+
+                <p>
+                    都道府県の高等学校一覧を確認でき<br>
+                    基本情報も閲覧することができます
+                </p>
+            </div>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🗺
+            </div>
+
+            <div>
+                <h3>学校の場所を一目でわかる</h3>
+
+                <p>
+                    学校の詳細ページにて学校の場所が<br>
+                    googleMapで一目で確認できます
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- カード3 -->
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                ♡
+            </div>
+
+            <div>
+                <h3>お気に入り保存</h3>
+
+                <p>
+                    気になる高校を保存して、<br>
+                    あとから比較できます。
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- カード4 -->
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                ●
+            </div>
+
+            <div>
+                <h3>マイページで管理</h3>
+
+                <p>
+                    診断結果の確認やお気に入り、<br>
+                    プロフィールを管理できます。
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     新着高校
+========================= -->
+<section class="schools-section">
+
+    <div class="schools-header">
+
+        <h2>都道府県別高校情報</h2>
+
+        <a th:href="@{/allschool(prefecture = ${prefecture})}">
+            もっと見る ›
+        </a>
+
+    </div>
+
+
+    <div class="school-list">
+
+        <!-- 高校1 -->
+        <article th:each="school : ${schools}" class="school-card"> 
+
+            <!--
+            <div class="school-image">
+                <span></span>
+            </div>
+        -->
+
+            <div class="school-info">
+
+                <h3 th:text="${school.name}"></h3>
+
+                <p th:text="${school.location}"></p>
+
+            </div>
+
+        </article>
+</section>
+
+
+<!-- =========================
+     フッター
+========================= -->
+<footer class="footer">
+
+    <p>© 2026 未来の高校探し</p>
+
+</footer>
+
+
+</body>
+</html>

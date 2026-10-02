@@ -1,0 +1,688 @@
+/* =========================
+   全体
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Hiragino Kaku Gothic ProN",
+        "Hiragino Sans",
+        "Yu Gothic",
+        Meiryo,
+        sans-serif;
+
+    color: #222;
+    background: #f7f8fa;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   ヘッダー
+========================= */
+
+.Top-Header {
+    height: 70px;
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #ffffff;
+    border-bottom: 1px solid #e8e8e8;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.Top-Header p {
+    margin: 0;
+
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+}
+
+.loginButton {
+    display: inline-block;
+
+    padding: 9px 22px;
+
+    color: #ffffff;
+    background: #333333;
+
+    text-decoration: none;
+    border-radius: 7px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.loginButton:hover {
+    background: #555555;
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   メイン
+========================= */
+
+.container {
+    width: min(1100px, 90%);
+    margin: 0 auto;
+
+    padding: 90px 0 100px;
+}
+
+.container > h1 {
+    max-width: 800px;
+
+    margin: 0 auto 80px;
+
+    text-align: center;
+
+    font-size: clamp(30px, 5vw, 52px);
+    line-height: 1.45;
+
+    letter-spacing: 0.03em;
+}
+
+.container > h1 span {
+    display: block;
+
+    margin-top: 12px;
+
+    font-size: clamp(20px, 3vw, 30px);
+    font-weight: 500;
+
+    color: #555;
+}
+
+
+/* =========================
+   診断スタート
+========================= */
+
+.top {
+    width: min(800px, 100%);
+    margin: 70px auto 0;
+
+    padding: 35px 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.top h3 {
+    margin: 0;
+
+    font-size: 22px;
+    font-weight: 600;
+
+    color: #222;
+}
+
+.diagnosisButton {
+    display: inline-block;
+
+    padding: 12px 26px;
+
+    background: #333;
+    color: #fff;
+
+    border-radius: 7px;
+
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.diagnosisButton:hover {
+    background: #555;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================
+   スマホ
+========================= */
+
+@media (max-width: 700px) {
+
+    .top {
+        width: 90%;
+
+        margin-top: 50px;
+
+        padding: 25px 22px;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 18px;
+
+        text-align: center;
+    }
+
+    .top h3 {
+        font-size: 19px;
+    }
+
+    .diagnosisButton {
+        width: 100%;
+
+        padding: 12px 20px;
+
+        text-align: center;
+
+        font-size: 14px;
+    }
+}
+
+
+/* =========================
+   4つの項目
+========================= */
+
+.items {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.items > h1 {
+    margin-bottom: 40px;
+
+    text-align: center;
+
+    font-size: clamp(20px, 3vw, 28px);
+}
+
+
+/* カード */
+
+.items-1,
+.items-2,
+.items-3,
+.items-4 {
+    position: relative;
+
+    margin-bottom: 18px;
+    padding: 28px 35px 28px 90px;
+
+    background: #ffffff;
+
+    border: 1px solid #e7e7e7;
+    border-radius: 12px;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.items-1:hover,
+.items-2:hover,
+.items-3:hover,
+.items-4:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 22px rgba(0, 0, 0, 0.08);
+}
+
+
+/* 番号 */
+
+.items-1::before,
+.items-2::before,
+.items-3::before,
+.items-4::before {
+    position: absolute;
+
+    left: 30px;
+    top: 30px;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #333;
+    color: #fff;
+
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.items-1::before {
+    content: "1";
+}
+
+.items-2::before {
+    content: "2";
+}
+
+.items-3::before {
+    content: "3";
+}
+
+.items-4::before {
+    content: "4";
+}
+
+
+/* 元のspanを非表示 */
+
+.items-1 > span,
+.items-2 > span,
+.items-3 > span {
+    display: none;
+}
+
+.items h2 {
+    margin: 0 0 7px;
+
+    font-size: 21px;
+    line-height: 1.4;
+}
+
+.items p {
+    margin: 0;
+
+    color: #666;
+    font-size: 15px;
+}
+
+
+/* =========================
+   サービス特徴
+========================= */
+
+.explanation {
+    padding: 90px 7% 110px;
+
+    background: #ffffff;
+
+    border-top: 1px solid #eeeeee;
+}
+
+.explanation > h1 {
+    margin: 0 0 50px;
+
+    text-align: center;
+
+    font-size: clamp(26px, 4vw, 38px);
+}
+
+
+/* =========================
+   特徴カード
+========================= */
+
+.feature-cards {
+    width: min(1000px, 100%);
+    margin: 0 auto;
+
+    display: flex;
+    gap: 20px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding: 10px 5px 20px;
+
+    scroll-snap-type: x mandatory;
+
+    scrollbar-width: none;
+}
+
+.feature-cards::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* カード */
+
+.feature-card {
+    flex: 0 0 100%;
+
+    min-height: 180px;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 20px;
+
+    padding: 30px;
+
+    background: #f8f9fa;
+
+    border: 1px solid #e7e7e7;
+    border-radius: 12px;
+
+    scroll-snap-align: center;
+
+    transition:
+        transform 0.25s ease,
+        background-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+
+    background: #ffffff;
+
+    box-shadow:
+        0 8px 22px rgba(0, 0, 0, 0.07);
+}
+
+
+/* アイコン */
+
+.feature-icon {
+    flex-shrink: 0;
+
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #333;
+    color: #fff;
+
+    border-radius: 10px;
+
+    font-size: 20px;
+}
+
+
+/* スライド可能文字*/
+
+.slide-guide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    margin-top: 10px;
+
+    color: #888;
+
+    font-size: 13px;
+}
+
+.slide-guide p {
+    margin: 0;
+}
+
+.slide-guide span {
+    font-size: 16px;
+}
+
+
+/* スマホ */
+@media (max-width: 700px) {
+
+    .slide-guide {
+        margin-top: 5px;
+
+        font-size: 12px;
+    }
+
+    .slide-guide span {
+        font-size: 15px;
+    }
+}
+
+/* カード文字 */
+
+.feature-card h3 {
+    margin: 0 0 8px;
+
+    font-size: 18px;
+}
+
+.feature-card p {
+    margin: 0;
+
+    color: #666;
+
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   スマホ
+========================= */
+
+@media (max-width: 700px) {
+
+    /* ヘッダー */
+
+    .Top-Header {
+        height: 62px;
+        padding: 0 5%;
+    }
+
+    .Top-Header p {
+        font-size: 16px;
+    }
+
+    .loginButton {
+        padding: 7px 16px;
+
+        font-size: 13px;
+    }
+
+
+    /* メイン */
+
+    .container {
+        width: 90%;
+
+        padding: 60px 0 70px;
+    }
+
+    .container > h1 {
+        margin-bottom: 55px;
+
+        font-size: 30px;
+        line-height: 1.5;
+    }
+
+    .container > h1 span {
+        margin-top: 10px;
+
+        font-size: 18px;
+    }
+
+
+    /* 4つの項目 */
+
+    .items > h1 {
+        margin-bottom: 25px;
+
+        font-size: 20px;
+        line-height: 1.5;
+    }
+
+    .items-1,
+    .items-2,
+    .items-3,
+    .items-4 {
+        margin-bottom: 14px;
+
+        padding: 24px 22px 24px 72px;
+
+        border-radius: 10px;
+    }
+
+    .items-1::before,
+    .items-2::before,
+    .items-3::before,
+    .items-4::before {
+        left: 20px;
+        top: 25px;
+
+        width: 34px;
+        height: 34px;
+
+        font-size: 14px;
+    }
+
+    .items h2 {
+        font-size: 18px;
+    }
+
+    .items p {
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+
+    /* =========================
+       特徴
+    ========================= */
+
+    .explanation {
+        padding: 65px 0 80px;
+    }
+
+    .explanation > h1 {
+        margin-bottom: 35px;
+
+        padding: 0 5%;
+
+        font-size: 25px;
+        line-height: 1.5;
+    }
+
+
+    /* 横スライド */
+
+    .feature-cards {
+        width: 100%;
+
+        display: flex;
+
+        gap: 14px;
+
+        padding: 10px 6% 20px;
+
+        overflow-x: auto;
+
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+
+    .feature-card {
+        flex: 0 0 88%;
+
+        min-height: 170px;
+
+        padding: 22px;
+
+        gap: 15px;
+
+        border-radius: 10px;
+
+        scroll-snap-align: center;
+    }
+
+
+    .feature-icon {
+        width: 40px;
+        height: 40px;
+
+        font-size: 17px;
+    }
+
+    .feature-card h3 {
+        font-size: 16px;
+    }
+
+    .feature-card p {
+        font-size: 13px;
+        line-height: 1.7;
+    }
+}
+
+
+/* =========================
+   小さいスマホ
+========================= */
+
+@media (max-width: 380px) {
+
+    .Top-Header p {
+        font-size: 14px;
+    }
+
+    .loginButton {
+        padding: 6px 13px;
+    }
+
+    .container > h1 {
+        font-size: 27px;
+    }
+
+    .items-1,
+    .items-2,
+    .items-3,
+    .items-4 {
+        padding-left: 65px;
+    }
+
+    .feature-card {
+        padding: 18px;
+    }
+}

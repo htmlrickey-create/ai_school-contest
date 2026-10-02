@@ -1,0 +1,608 @@
+
+/* =========================
+   基本設定
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        "YuGothic",
+        Meiryo,
+        sans-serif;
+
+    color: #222;
+    background: #f5f5f3;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   Header
+========================= */
+
+.header {
+    width: 100%;
+    background: #ffffff;
+    border-bottom: 1px solid #e8e8e5;
+}
+
+.header-inner {
+    max-width: 1120px;
+    height: 72px;
+    margin: 0 auto;
+    padding: 0 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    color: #202b3c;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.header-label {
+    color: #777;
+    font-size: 13px;
+}
+
+
+/* =========================
+   Main
+========================= */
+
+.diagnosis-page {
+    min-height: calc(100vh - 72px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 60px 20px;
+}
+
+.diagnosis-container {
+    width: 100%;
+    max-width: 760px;
+}
+
+
+/* =========================
+   Intro
+========================= */
+
+.intro {
+    text-align: center;
+    padding: 40px 20px;
+    animation: fadeUp 0.6s ease;
+}
+
+.eyebrow {
+    color: #65728a;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    margin-bottom: 22px;
+}
+
+.intro h1,
+.result h1 {
+    color: #202b3c;
+    font-size: clamp(34px, 5vw, 52px);
+    line-height: 1.35;
+    letter-spacing: 0.02em;
+    font-weight: 700;
+}
+
+.intro-text {
+    margin-top: 25px;
+
+    color: #666;
+    font-size: 15px;
+    line-height: 2;
+}
+
+
+/* =========================
+   Button
+========================= */
+
+.start-button,
+.result-button {
+    margin-top: 38px;
+
+    border: none;
+    background: #26364d;
+    color: white;
+
+    min-width: 230px;
+    height: 58px;
+
+    padding: 0 26px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.start-button:hover,
+.result-button:hover {
+    background: #1d2a3c;
+    transform: translateY(-2px);
+}
+
+.start-button span,
+.result-button span {
+    font-size: 18px;
+}
+
+
+/* =========================
+   Quiz
+========================= */
+
+.quiz {
+    background: #ffffff;
+
+    border: 1px solid #e4e4e0;
+
+    padding: 34px 42px 38px;
+
+    animation: fadeUp 0.45s ease;
+}
+
+
+/* Quiz top */
+
+.quiz-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.back-home {
+    border: none;
+    background: none;
+
+    color: #777;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition: color 0.2s ease;
+}
+
+.back-home:hover {
+    color: #202b3c;
+}
+
+.question-count {
+    color: #555;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* Progress */
+
+.progress-area {
+    margin-top: 20px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 3px;
+
+    background: #e8e8e5;
+}
+
+.progress {
+    width: 16.66%;
+    height: 100%;
+
+    background: #26364d;
+
+    transition: width 0.35s ease;
+}
+
+
+/* =========================
+   Question
+========================= */
+
+.question-area {
+    padding: 60px 10px 45px;
+}
+
+.question-number {
+    color: #8a8f96;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 0.15em;
+}
+
+.question-area h2 {
+    margin-top: 14px;
+
+    color: #202b3c;
+
+    font-size: clamp(24px, 4vw, 32px);
+    line-height: 1.5;
+
+    font-weight: 700;
+}
+
+.question-description {
+    margin-top: 12px;
+
+    color: #777;
+
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   Answers
+========================= */
+
+.answer-list {
+    margin-top: 34px;
+
+    display: grid;
+    gap: 10px;
+}
+
+.answer-button {
+    width: 100%;
+
+    min-height: 62px;
+
+    padding: 17px 20px;
+
+    border: 1px solid #deded9;
+    background: #fff;
+
+    color: #333;
+
+    font-size: 14px;
+    text-align: left;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        transform 0.15s ease;
+}
+
+.answer-button::after {
+    content: "○";
+
+    color: #a4a4a0;
+
+    font-size: 18px;
+
+    transition: all 0.2s ease;
+}
+
+.answer-button:hover {
+    border-color: #9ca5b1;
+    background: #fafafa;
+}
+
+.answer-button:active {
+    transform: scale(0.99);
+}
+
+
+/* 選択状態 */
+
+.answer-button.selected {
+    border-color: #26364d;
+    background: #f2f4f6;
+
+    color: #202b3c;
+
+    font-weight: 700;
+}
+
+.answer-button.selected::after {
+    content: "✓";
+
+    color: #26364d;
+    font-weight: 700;
+}
+
+
+/* =========================
+   Navigation
+========================= */
+
+.quiz-navigation {
+    border-top: 1px solid #eeeeeb;
+
+    padding-top: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.previous-button {
+    border: none;
+    background: none;
+
+    color: #777;
+
+    font-size: 13px;
+
+    cursor: pointer;
+}
+
+.previous-button:hover {
+    color: #202b3c;
+}
+
+.next-button {
+    margin-left: auto;
+
+    border: none;
+
+    background: #26364d;
+    color: white;
+
+    min-width: 130px;
+    height: 48px;
+
+    padding: 0 18px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+
+    transition:
+        background 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.next-button:hover:not(:disabled) {
+    background: #1d2a3c;
+}
+
+.next-button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+
+/* =========================
+   Result
+========================= */
+
+.result {
+    text-align: center;
+
+    background: #ffffff;
+
+    border: 1px solid #e4e4e0;
+
+    padding: 65px 50px;
+
+    animation: fadeUp 0.5s ease;
+}
+
+.result-text {
+    margin-top: 22px;
+
+    color: #666;
+
+    font-size: 14px;
+    line-height: 2;
+}
+
+.hidden {
+    display: none;
+}
+.loading-dots {
+    margin-top: 20px;
+}
+
+.loading-dots span {
+    display: inline-block;
+    margin: 0 4px;
+    animation: loading 1.2s infinite;
+}
+
+.loading-dots span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.loading-dots span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes loading {
+    0%, 60%, 100% {
+        opacity: 0.2;
+    }
+
+    30% {
+        opacity: 1;
+    }
+}
+
+
+/* Summary */
+
+.result-summary {
+    margin: 40px auto 0;
+
+    max-width: 500px;
+
+    border-top: 1px solid #e6e6e2;
+    border-bottom: 1px solid #e6e6e2;
+
+    text-align: left;
+}
+
+.summary-title {
+    padding: 16px 0;
+
+    color: #777;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+}
+
+.result-answer {
+    padding: 14px 0;
+
+    border-top: 1px solid #eeeeeb;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    font-size: 13px;
+}
+
+.result-answer-label {
+    color: #888;
+}
+
+.result-answer-value {
+    color: #202b3c;
+    font-weight: 700;
+}
+
+
+/* =========================
+   Utility
+========================= */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================
+   Animation
+========================= */
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 600px) {
+
+    .header-inner {
+        height: 62px;
+        padding: 0 20px;
+    }
+
+    .diagnosis-page {
+        min-height: calc(100vh - 62px);
+        padding: 25px 12px;
+        align-items: flex-start;
+    }
+
+    .intro {
+        padding: 60px 10px;
+    }
+
+    .intro h1,
+    .result h1 {
+        font-size: 31px;
+    }
+
+    .intro-text {
+        font-size: 13px;
+    }
+
+    .quiz {
+        padding: 25px 20px 28px;
+    }
+
+    .question-area {
+        padding: 45px 0 35px;
+    }
+
+    .question-area h2 {
+        font-size: 23px;
+    }
+
+    .answer-button {
+        min-height: 58px;
+        font-size: 13px;
+    }
+
+    .result {
+        padding: 50px 22px;
+    }
+
+    .result-answer {
+        display: block;
+    }
+
+    .result-answer-value {
+        display: block;
+        margin-top: 6px;
+    }
+}

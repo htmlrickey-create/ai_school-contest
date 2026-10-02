@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" th:href="@{/CSS/allschool.css}">
+
+    <title>高校一覧</title>
+</head>
+
+<body>
+
+    <div class="TopContainer">
+        <h1>県の高校一覧</h1>
+        <a href="/home">ホーム</a>
+        <a href="/Mypage">マイページ</a>
+    </div>
+
+
+    <div class="AllSchool">
+
+        <a th:each="school : ${schools}"
+           th:href="@{/schools/{code}(code=${school.code})}"
+           class="SchoolCard">
+
+            <h2 th:text="${school.name}">
+                高校名
+            </h2>
+
+            <p th:text="${school.location}">
+                所在地
+            </p>
+
+        </a>
+
+    </div>
+
+</body>
+</html>

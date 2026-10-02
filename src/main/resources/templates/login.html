@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link rel="stylesheet" href="/CSS/style.css">
+
+    <title>ログイン</title>
+</head>
+
+<body>
+
+    <div class="form-container sign-in">
+
+        <form th:action="@{/login}"
+              th:object="${loginForm}"
+              method="POST">
+
+            <h1>ログイン</h1>
+
+            <span>アカウントログイン情報</span>
+
+            <input
+                type="email"
+                placeholder="メールアドレス"
+                th:field="*{loginMail}">
+
+            <div class="password-box">
+
+                <input
+                    id="loginPassword"
+                    type="password"
+                    th:field="*{password}"
+                    placeholder="パスワード">
+
+                <i
+                    class="fa-solid fa-eye password-toggle"
+                    data-target="loginPassword">
+                </i>
+
+            <p th:text="${errorMsg}"></p>
+
+            </div>
+
+            <button type="submit">
+                ログイン
+            </button>
+
+            <h5 class="register-link">
+                アカウントをお持ちではないですか？
+                <a th:href="@{/terms/register}">新規登録</a>
+            </h5>
+
+        </form>
+
+    </div>
+
+    <script src="/CSS/JS/script.js"></script>
+
+</body>
+</html>

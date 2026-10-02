@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Noto Sans JP", sans-serif;
+    background-color: #f5f6f8;
+    color: #333;
+}
+
+/* ヘッダー */
+.TopContainer {
+    width: 100%;
+    height: 80px;
+    background-color: #ffffff;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 60px;
+    gap: 30px;
+
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.TopContainer h1 {
+    font-size: 24px;
+    margin-right: auto;
+}
+
+.TopContainer a {
+    text-decoration: none;
+    color: #333;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.TopContainer a:hover {
+    color: #4f7cff;
+}
+
+
+/* 高校一覧 */
+.AllSchool {
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+
+/* 高校カード */
+.SchoolCard {
+    display: block;
+
+    background-color: #ffffff;
+
+    border-radius: 15px;
+
+    padding: 25px;
+
+    min-height: 180px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+
+    text-decoration: none;
+    color: #333;
+
+    transition: 0.2s;
+
+    cursor: pointer;
+}
+
+.SchoolCard:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+
+/* 学校名 */
+.SchoolCard h2 {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+
+/* 学校情報 */
+.SchoolCard p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+
+/* 画像 */
+.SchoolCard img {
+    width: 100%;
+    height: 150px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+
+    margin-bottom: 15px;
+}
+
+
+/* タブレット */
+@media (max-width: 900px) {
+
+    .AllSchool {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* スマホ */
+@media (max-width: 600px) {
+
+    .TopContainer {
+        padding: 0 20px;
+        height: 70px;
+    }
+
+    .TopContainer h1 {
+        font-size: 18px;
+    }
+
+    .TopContainer a {
+        font-size: 13px;
+    }
+
+    .AllSchool {
+        width: 90%;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .SchoolCard {
+        padding: 20px;
+    }
+}

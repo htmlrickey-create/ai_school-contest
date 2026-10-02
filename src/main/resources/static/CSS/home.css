@@ -1,0 +1,789 @@
+/* =========================
+   全体
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        Meiryo,
+        sans-serif;
+
+    background: #f7faf7;
+    color: #28332d;
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================
+   ヘッダー
+========================= */
+
+.header {
+    width: 100%;
+    background: #ffffff;
+    border-bottom: 1px solid #e3ebe5;
+}
+
+.header-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+
+    min-height: 76px;
+    padding: 0 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+}
+
+
+/* ロゴ */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    flex-shrink: 0;
+}
+
+.logo h1 {
+    font-size: 22px;
+    font-weight: 700;
+
+    color: #304437;
+
+    line-height: 1.3;
+}
+
+.logo p {
+    margin-top: 2px;
+
+    color: #89958d;
+    font-size: 11px;
+    line-height: 1.3;
+}
+
+
+/* ナビゲーション */
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    margin-left: auto;
+}
+
+.nav a {
+    position: relative;
+
+    color: #66736b;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    padding: 27px 2px;
+}
+
+.nav a:hover {
+    color: #3f6d4f;
+}
+
+.nav a.active {
+    color: #3f6d4f;
+    font-weight: 600;
+}
+
+.nav a.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 17px;
+
+    height: 2px;
+
+    background: #6f9f7c;
+}
+
+
+/* マイページ */
+
+.acountButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 40px;
+    padding: 0 18px;
+
+    border: 1px solid #e3f5f7;
+    border-radius: 6px;
+
+    color: #000000;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    background: #ffffff;
+
+    transition: 0.2s ease;
+}
+
+.acountButton:hover {
+    background: #f1dcf7;
+}
+
+
+/* =========================
+   ヒーロー
+========================= */
+
+.hero {
+    position: relative;
+
+    background: #edf6ef;
+
+    border-bottom: 1px solid #dfebe1;
+}
+
+.hero-inner {
+    max-width: 1180px;
+    min-height: 500px;
+
+    margin: 0 auto;
+    padding: 70px 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 70px;
+}
+
+
+/* 左側 */
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-subtitle {
+    color: #5e8068;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    margin-bottom: 15px;
+}
+
+.hero-content h2 {
+    color: #26362c;
+
+    font-size: 39px;
+    font-weight: 600;
+
+    line-height: 1.35;
+
+    letter-spacing: 0.01em;
+}
+
+.hero-content h2 span {
+    color: #4e7d5b;
+}
+
+.hero-description {
+    margin-top: 22px;
+
+    color: #657169;
+
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+
+/* 診断ボタン */
+
+.hero-buttons {
+    margin-top: 32px;
+}
+
+.diagnosis-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+
+    min-width: 190px;
+    height: 50px;
+
+    padding: 0 20px;
+
+    background: #527d5d;
+    color: #ffffff;
+
+    border-radius: 6px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        transform 0.1s ease;
+}
+
+.diagnosis-button:hover {
+    background: #416b4c;
+}
+
+.diagnosis-button:active {
+    transform: translateY(1px);
+}
+
+.diagnosis-button span {
+    font-size: 21px;
+    line-height: 1;
+}
+
+
+/* =========================
+   ヒーローカード
+========================= */
+
+.hero-card {
+    width: 370px;
+
+    padding: 28px;
+
+    background: #ffffff;
+
+    border: 1px solid #dce8df;
+    border-radius: 9px;
+
+    box-shadow: 0 8px 25px rgba(55, 80, 62, 0.07);
+}
+
+
+/* ユーザー数 */
+
+.user-count {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    padding-bottom: 22px;
+
+    border-bottom: 1px solid #edf0ed;
+}
+
+.user-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #edf6ef;
+
+    border-radius: 7px;
+
+    font-size: 18px;
+}
+
+.user-count p {
+    color: #89938c;
+    font-size: 11px;
+}
+
+.user-count strong {
+    display: block;
+
+    margin-top: 1px;
+
+    color: #3f664b;
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+/* 人気の診断 */
+
+.hero-card h3 {
+    margin-top: 24px;
+    margin-bottom: 15px;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    color: #35443a;
+}
+
+.ranking {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.ranking-item {
+    display: flex;
+    align-items: center;
+
+    min-height: 43px;
+
+    padding: 0 12px;
+
+    background: #f7faf7;
+
+    border: 1px solid #edf1ed;
+    border-radius: 5px;
+
+    gap: 12px;
+}
+
+.ranking-item > span {
+    width: 22px;
+    height: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #dfeee3;
+    color: #52745d;
+
+    border-radius: 50%;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.ranking-item p {
+    color: #56635a;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   サービスでできること
+========================= */
+
+.features {
+    max-width: 1180px;
+
+    margin: 0 auto;
+
+    padding: 75px 30px;
+}
+
+.section-title {
+    text-align: center;
+}
+
+.section-title h2 {
+    color: #2f3e34;
+
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.title-line {
+    width: 35px;
+    height: 2px;
+
+    margin: 13px auto 40px;
+
+    background: #77a383;
+}
+
+
+/* カード一覧 */
+
+.feature-list {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+.feature-card {
+    min-height: 190px;
+
+    padding: 25px 20px;
+
+    background: #ffffff;
+
+    border: 1px solid #e1e9e3;
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    transition:
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.feature-card:hover {
+    border-color: #bdd2c2;
+    transform: translateY(-2px);
+}
+
+.feature-icon {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 18px;
+
+    background: #e8f3ea;
+    color: #527d5d;
+
+    border-radius: 7px;
+
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.feature-card h3 {
+    margin-bottom: 8px;
+
+    color: #34443a;
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.feature-card p {
+    color: #7b857e;
+
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   高校情報
+========================= */
+
+.schools-section {
+    max-width: 1180px;
+
+    margin: 0 auto;
+
+    padding: 20px 30px 80px;
+}
+
+.schools-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+}
+
+.schools-header h2 {
+    color: #2f3e34;
+
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.schools-header a {
+    color: #587661;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.schools-header a:hover {
+    text-decoration: underline;
+}
+
+
+/* 高校カード */
+
+.school-list {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.school-card {
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border: 1px solid #e0e8e2;
+    border-radius: 8px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.school-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 7px 20px rgba(50, 75, 58, 0.08);
+}
+
+
+/* 高校画像 */
+
+.school-image {
+    position: relative;
+
+    width: 100%;
+    height: 170px;
+
+    background: #e6eee8;
+
+    overflow: hidden;
+}
+
+.school-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* 高校情報 */
+
+.school-info {
+    padding: 20px;
+}
+
+.school-info h3 {
+    color: #334238;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    margin-bottom: 7px;
+}
+
+.school-info p {
+    color: #7b857e;
+
+    font-size: 12px;
+
+    margin-bottom: 12px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 6px;
+}
+
+.tags span {
+    display: inline-block;
+
+    padding: 3px 9px;
+
+    background: #edf5ef;
+    color: #5c7864;
+
+    border-radius: 4px;
+
+    font-size: 10px;
+}
+
+
+/* =========================
+   フッター
+========================= */
+
+.footer {
+    padding: 28px 20px;
+
+    background: #eef3ef;
+
+    border-top: 1px solid #dfe7e1;
+
+    text-align: center;
+}
+
+.footer p {
+    color: #89938c;
+
+    font-size: 11px;
+}
+
+
+/* =========================
+   タブレット
+========================= */
+
+@media (max-width: 900px) {
+
+    .header-inner {
+        gap: 20px;
+    }
+
+    .nav {
+        gap: 18px;
+    }
+
+    .hero-inner {
+        gap: 40px;
+    }
+
+    .hero-content h2 {
+        font-size: 36px;
+    }
+
+    .hero-card {
+        width: 330px;
+    }
+
+    .feature-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================
+   スマホ
+========================= */
+
+@media (max-width: 700px) {
+
+    .header-inner {
+        min-height: auto;
+
+        padding: 18px 20px;
+
+        flex-wrap: wrap;
+    }
+
+    .nav {
+        order: 3;
+
+        width: 100%;
+
+        justify-content: space-between;
+
+        margin-left: 0;
+
+        gap: 10px;
+    }
+
+    .nav a {
+        padding: 8px 0;
+
+        font-size: 12px;
+    }
+
+    .nav a.active::after {
+        bottom: 2px;
+    }
+
+    .auth-buttons {
+        margin-left: auto;
+    }
+
+    .hero-inner {
+        padding: 55px 20px;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 40px;
+    }
+
+    .hero-content h2 {
+        font-size: 32px;
+    }
+
+    .hero-card {
+        width: 100%;
+    }
+
+    .features {
+        padding: 60px 20px;
+    }
+
+    .feature-list {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-card {
+        min-height: auto;
+    }
+
+    .schools-section {
+        padding: 10px 20px 60px;
+    }
+
+    .school-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================
+   小さいスマホ
+========================= */
+
+@media (max-width: 420px) {
+
+    .logo h1 {
+        font-size: 15px;
+    }
+
+    .logo p {
+        font-size: 9px;
+    }
+
+    .acountButton {
+        height: 36px;
+
+        padding: 0 12px;
+
+        font-size: 11px;
+    }
+
+    .hero-content h2 {
+        font-size: 28px;
+    }
+
+    .hero-description {
+        font-size: 13px;
+    }
+}

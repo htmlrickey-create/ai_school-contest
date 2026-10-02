@@ -1,0 +1,356 @@
+/* =========================
+   全体
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family: "Noto Sans JP", sans-serif;
+
+    background: #f5f7fa;
+    color: #333;
+}
+
+
+/* =========================
+   利用規約全体
+========================= */
+
+.terms-container {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px 20px;
+}
+
+
+/* =========================
+   利用規約カード
+========================= */
+
+.terms-card {
+    width: 100%;
+    max-width: 850px;
+
+    background: #ffffff;
+
+    border-radius: 16px;
+
+    padding: 40px;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================
+   タイトル
+========================= */
+
+.terms-card h1 {
+    margin: 0 0 25px;
+
+    text-align: center;
+
+    font-size: 30px;
+    font-weight: 700;
+
+    color: #222;
+}
+
+
+/* =========================
+   説明文
+========================= */
+
+.terms-card > p {
+    margin: 0 0 25px;
+
+    line-height: 1.8;
+
+    font-size: 14px;
+
+    color: #555;
+}
+
+
+/* =========================
+   規約本文
+========================= */
+
+.terms-content {
+    height: 450px;
+
+    overflow-y: auto;
+
+    padding: 25px;
+
+    background: #fafafa;
+
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+
+/* スクロールバー */
+
+.terms-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.terms-content::-webkit-scrollbar-track {
+    background: #eeeeee;
+
+    border-radius: 10px;
+}
+
+.terms-content::-webkit-scrollbar-thumb {
+    background: #bbbbbb;
+
+    border-radius: 10px;
+}
+
+.terms-content::-webkit-scrollbar-thumb:hover {
+    background: #999999;
+}
+
+
+/* =========================
+   各条文
+========================= */
+
+.terms-section {
+    margin-bottom: 30px;
+}
+
+.terms-section:last-child {
+    margin-bottom: 0;
+}
+
+
+/* 条文タイトル */
+
+.terms-section h2 {
+    margin: 0 0 12px;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    color: #222;
+}
+
+
+/* 条文本文 */
+
+.terms-section p {
+    margin: 0;
+
+    line-height: 1.9;
+
+    font-size: 14px;
+
+    color: #555;
+}
+
+
+/* =========================
+   禁止事項
+========================= */
+
+.terms-section ul {
+    margin: 12px 0 0;
+    padding-left: 25px;
+}
+
+.terms-section li {
+    margin-bottom: 8px;
+
+    line-height: 1.7;
+
+    font-size: 14px;
+
+    color: #555;
+}
+
+
+/* =========================
+   同意部分
+========================= */
+
+.agreement {
+    margin-top: 25px;
+
+    text-align: center;
+}
+
+.agreement label {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    color: #333;
+}
+
+
+/* チェックボックス */
+
+.agreement input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+
+    margin: 0;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   同意ボタン
+========================= */
+
+.agree-button {
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 14px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #919191;
+
+    color: #fffdfd;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+
+/* ボタンにマウスを乗せたとき */
+
+.agree-button:hover {
+    opacity: 0.9;
+
+    transform: translateY(-1px);
+}
+
+
+/* ボタンを押しているとき */
+
+.agree-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================
+   ログイン画面に戻る
+========================= */
+
+.back-link {
+    display: block;
+
+    margin-top: 20px;
+
+    text-align: center;
+
+    color: #4f7cff;
+
+    text-decoration: none;
+
+    font-size: 14px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   スマートフォン対応
+========================= */
+
+@media (max-width: 600px) {
+
+    .terms-container {
+        padding: 20px 15px;
+
+        align-items: flex-start;
+    }
+
+    .terms-card {
+        padding: 25px 20px;
+
+        border-radius: 12px;
+    }
+
+    .terms-card h1 {
+        font-size: 24px;
+
+        margin-bottom: 20px;
+    }
+
+    .terms-card > p {
+        font-size: 13px;
+    }
+
+    .terms-content {
+        height: 400px;
+
+        padding: 18px;
+    }
+
+    .terms-section {
+        margin-bottom: 25px;
+    }
+
+    .terms-section h2 {
+        font-size: 16px;
+    }
+
+    .terms-section p {
+        font-size: 13px;
+
+        line-height: 1.8;
+    }
+
+    .terms-section li {
+        font-size: 13px;
+
+        line-height: 1.7;
+    }
+
+    .agreement label {
+        font-size: 13px;
+    }
+
+    .agree-button {
+        font-size: 15px;
+
+        padding: 13px;
+    }
+
+    .back-link {
+        font-size: 13px;
+    }
+}

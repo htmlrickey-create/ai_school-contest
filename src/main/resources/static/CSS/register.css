@@ -1,0 +1,194 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        Meiryo,
+        sans-serif;
+
+    background-color: #f7f7f5;
+    color: #222;
+    min-height: 100vh;
+}
+
+/* 登録画面全体 */
+.register-container {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px 20px;
+}
+
+/* 登録フォーム */
+.register-card {
+    width: 100%;
+    max-width: 460px;
+
+    background-color: #fff;
+
+    padding: 42px 44px;
+
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+}
+
+/* タイトル */
+.register-card h1 {
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+
+    margin-bottom: 10px;
+}
+
+/* 説明文 */
+.description {
+    color: #777;
+    font-size: 14px;
+
+    margin-bottom: 32px;
+}
+
+/* 各入力項目 */
+.form-group {
+    margin-bottom: 22px;
+}
+
+/* ラベル */
+.form-group label {
+    display: block;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    margin-bottom: 8px;
+}
+
+/* input / select */
+.form-group input,
+.form-group select {
+    width: 100%;
+    height: 46px;
+
+    padding: 0 13px;
+
+    border: 1px solid #d7d7d7;
+    border-radius: 6px;
+
+    background-color: #fff;
+
+    color: #222;
+    font-size: 15px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* フォーカス時 */
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #555;
+
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06);
+}
+
+/* プレースホルダー */
+.form-group input::placeholder {
+    color: #aaa;
+}
+
+/* セレクト */
+.form-group select {
+    cursor: pointer;
+}
+
+
+
+/* 登録ボタン */
+button[type="submit"] {
+    width: 100%;
+    height: 48px;
+
+    margin-top: 8px;
+
+    border: none;
+    border-radius: 6px;
+
+    background-color: #222;
+    color: #fff;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.1s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #444;
+}
+
+button[type="submit"]:active {
+    transform: translateY(1px);
+}
+
+/* ログインリンク */
+.login-link {
+    text-align: center;
+
+    margin-top: 25px;
+
+    font-size: 13px;
+    color: #777;
+}
+
+.login-link a {
+    color: #222;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    margin-left: 4px;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* スマホ */
+@media (max-width: 520px) {
+
+    .register-container {
+        padding: 25px 15px;
+        align-items: flex-start;
+    }
+
+    .register-card {
+        margin-top: 20px;
+        padding: 32px 24px;
+    }
+
+    .register-card h1 {
+        font-size: 23px;
+    }
+}

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>診断結果</title>
+</head>
+<body>
+    <!DOCTYPE html>
+
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>診断結果</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" th:href="@{/CSS/diagnosis-result.css}">
+
+</head>
+
+<body>
+<!-- =========================
+     ヘッダー
+========================== -->
+
+<header class="header">
+
+    <div class="header-inner">
+
+        <a href="/home" class="logo">
+            未来<span>探せる</span>AI相談
+        </a>
+
+        <nav class="header-nav">
+            <a href="/home">ホーム</a>
+            <a href="/diagnosis">もう一度診断</a>
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     メイン
+========================== -->
+
+<main class="main">
+
+    <!-- 結果タイトル -->
+
+    <section class="result-heading">
+
+        <div class="result-label">
+            診断結果
+        </div>
+
+        <span th:text = "${userName}"></span>さんに合う高校が見つかりました
+
+        <p>
+            診断結果をもとに、あなたの希望に合う学校を選びました。
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         おすすめ理由
+    ========================== -->
+
+    <section class="reason-section">
+
+        <div class="section-heading">
+
+            <span class="number">
+                01 / 理由
+            </span>
+
+            <h2>
+                あなたにおすすめした理由
+            </h2>
+
+        </div>
+
+
+        <div class="reason-card">
+
+            <p th:text="${reason}">
+                おすすめの理由がここに表示されます。
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         おすすめ学校
+    ========================== -->
+
+    <section class="schools-section">
+
+        <div class="section-heading">
+
+            <span class="number">
+                02 / 学校
+            </span>
+
+            <h2>
+                おすすめの学校
+            </h2>
+
+        </div>
+
+
+        <div class="school-list">
+
+            <!-- 学校カード -->
+
+            <article
+                class="school-card"
+                th:each="school, stat : ${schools}">
+
+
+                <!-- 学校画像 -->
+
+                <div class="school-image">
+
+                    <img
+                        th:src="${school.imageUrl != null and !school.imageUrl.isBlank()
+                            ? school.imageUrl
+                            : '/images/school-default.jpg'}"
+                        th:alt="${school.name}">
+
+                </div>
+
+
+                <!-- 学校情報 -->
+
+                <div class="school-content">
+
+                    <span
+                        class="recommend-number"
+                        th:text="'RECOMMEND ' + ${stat.count}">
+                        RECOMMEND 1
+                    </span>
+
+
+                    <h3
+                        class="school-name"
+                        th:text="${school.name}">
+                        学校名
+                    </h3>
+
+
+                    <div class="school-location">
+
+                        <span class="location-icon"></span>
+
+                        <span th:text="${school.location}">
+                            所在地
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="school-code"
+                        th:text="'学校コード：' + ${school.code}">
+                        学校コード：
+                    </div>
+
+
+                    <div class="school-actions">
+
+                        <a
+                            th:href="@{'/schools/' + ${school.code}}"
+                            class="detail-button">
+                            学校の詳細を見る
+                        </a>
+
+
+                        <a
+                            th:if="${school.websiteUrl != null and !school.websiteUrl.isBlank()}"
+                            th:href="${school.websiteUrl}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="website-button">
+                            公式サイトを見る ↗
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         下部
+    ========================== -->
+
+    <section class="next-section">
+
+        <h2>
+            気になる学校をもっと調べてみよう
+        </h2>
+
+        <p>
+            学校の詳しい情報や特徴を確認して、自分に合う学校を探してみましょう。
+        </p>
+
+        <a href="/diagnosis" class="back-button">
+            もう一度診断する
+        </a>
+
+    </section>
+
+</main>
+
+
+<!-- =========================
+     フッター
+========================== -->
+
+<footer class="footer">
+
+    <div class="footer-inner">
+
+        <div class="footer-logo">
+            未来探せるAI相談
+        </div>
+
+        <div class="copyright">
+            © 2026 Mirai Sagaseru AI
+        </div>
+
+    </div>
+
+</footer>
+```
+
+</body>
+
+</html>
+
+    
+</body>
+</html>

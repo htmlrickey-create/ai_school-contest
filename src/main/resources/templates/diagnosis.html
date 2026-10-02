@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="_csrf" th:content="${_csrf.token}">
+
+    <meta name="_csrf_header" th:content="${_csrf.headerName}">
+
+    <title>学校診断 | 未来探せるAI相談</title>
+
+    <link rel="stylesheet" th:href="@{/CSS/diagnosis.css}">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="header-inner">
+            <a href="/home" class="logo">
+                ホーム
+            </a>
+
+            <span class="header-label">
+                学校診断ページ
+            </span>
+        </div>
+    </header>
+
+
+    <main class="diagnosis-page">
+
+        <section class="diagnosis-container">
+
+            <!-- ページタイトル -->
+            <div class="intro" id="intro">
+
+                <p class="eyebrow">SCHOOL DIAGNOSIS</p>
+
+                <h1>
+                    あなたに合う学校を<br>
+                    一緒に探しましょう!
+                </h1>
+
+                <p class="intro-text">
+                    7つの質問に答えるだけで、<br>
+                    <span th:text = "${userName}">あなた</span>さんの希望に合った学校を探します
+                </p>
+
+                <button class="start-button" id="startButton">
+                    診断をはじめる
+                    <span>→</span>
+                </button>
+
+            </div>
+
+
+            <!-- 診断本体 -->
+            <div class="quiz hidden" id="quiz">
+
+                <!-- 上部 -->
+                <div class="quiz-top">
+
+                    <button class="back-home" id="backButton">
+                        ← 戻る
+                    </button>
+
+                    <span class="question-count">
+                        <span id="currentNumber">1</span>
+                        / 7
+                    </span>
+
+                </div>
+
+
+                <!-- プログレスバー -->
+                <div class="progress-area">
+                    <div class="progress-bar">
+                        <div class="progress" id="progress"></div>
+                    </div>
+                </div>
+
+
+                <!-- 質問 -->
+                <div class="question-area" id="questionArea">
+
+                    <p class="question-number" id="questionNumber">
+                        QUESTION 01
+                    </p>
+
+                    <h2 id="questionTitle">
+                        どんなことに興味がありますか？
+                    </h2>
+
+                    <p class="question-description" id="questionDescription">
+                        今の時点で気になるものを選んでください。
+                    </p>
+
+
+                    <div class="answer-list" id="answerList">
+                        <!-- JSで生成 -->
+                    </div>
+
+                </div>
+
+
+                <!-- ナビゲーション -->
+                <div class="quiz-navigation">
+
+                    <button class="previous-button hidden" id="previousButton">
+                        ← 前の質問
+                    </button>
+
+                    <button class="next-button" id="nextButton" disabled>
+                        次へ
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- 結果画面 -->
+            <div class="result hidden" id="result">
+
+                <p class="eyebrow">診断完了</p>
+
+                <h1>
+                    診断の記入が終了しました
+                </h1>
+
+                <p class="result-text">
+                    あなたの回答をもとに、<br>
+                    おすすめの学校を探す準備ができました
+                </p>
+
+                <div class="result-summary">
+                    <div class="summary-title">
+                        <span th:text = "${userName}">あなた</span>さんの回答
+                    </div>
+
+                    <div id="resultAnswers"></div>
+                </div>
+
+                <button class="result-button" id="resultButton">
+                    以上の回答でAI診断を始める
+                    <span>→</span>
+                </button>
+
+            </div>
+
+                <div id="diagnosisLoading" class="hidden">
+                     <h2>診断しています…</h2>
+                     <p>あなたに合った高校を分析しています。<br>
+                        結果が出るまで数分かかることがありますページを閉じずにお待ちください。</p>
+
+
+                     <div class="loading-dots">
+                         <span>●</span>
+                         <span>●</span>
+                         <span>●</span>
+                    </div>
+                </div>
+
+        </section>
+
+    </main>
+
+
+
+
+
+    <script th:src="@{CSS/JS/diagnosis.js}"></script>
+
+</body>
+
+</html>
