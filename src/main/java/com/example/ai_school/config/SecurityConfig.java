@@ -36,13 +36,6 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
 
-            // CSRF対策の設定
-            .csrf(csrf -> csrf
-
-                // /diagnosisへのリクエストではCSRFチェックを無視する
-                .ignoringRequestMatchers("/diagnosis")
-            )
-
         // URLごとのアクセス権限を設定する
         .authorizeHttpRequests(auth -> auth
 
@@ -63,7 +56,7 @@ public class SecurityConfig {
                 .invalidateHttpSession(true)
 
                 // ログアウト時にJESSIONIDというCookieを削除する
-                .deleteCookies("JESSIONID")
+                .deleteCookies("JSESSIONID")
 
                 // ログアウト処理はログインしていなくても実行可能
                 .permitAll()

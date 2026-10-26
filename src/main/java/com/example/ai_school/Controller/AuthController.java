@@ -39,7 +39,14 @@ import jakarta.servlet.http.HttpSession;
 // コンストラクタを自動生成するためのLombok
 import lombok.RequiredArgsConstructor;
 
+import jakarta.servlet.http.HttpServletRequest;
+
+
+import jakarta.servlet.http.HttpServletResponse;
 // Spring Securityの認証情報を表すインターフェース
+
+import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
+
 import org.springframework.security.core.Authentication;
 
 // ユーザーの権限を扱うためのクラス
@@ -127,7 +134,9 @@ public class AuthController {
     public String login(
             Model model,
             LoginForm form,
-            HttpSession session) {
+            HttpSession session,
+            HttpServletRequest request,
+            HttpServletResponse response) {
 
         // 入力されたメールアドレスを使ってDBからユーザー情報を検索する
         var userInfo = service.searchUserById(form.getLoginMail());
@@ -142,8 +151,17 @@ public class AuthController {
                     // DBに保存されている暗号化されたパスワード
                     userInfo.get().getPassword()
                 );
+         if (!isCorrectUserAuth) {
+              model.addAttribute(
+               "errorMsg",
+                "メールアドレスまたはパスワードが間違っています"
+              );
+               model.addAttribute("loginForm", form);
+                model.addAttribute("registerForm", new RegisterForm());
+              return "login";
+            }
 
-
+           request.changeSessionId();
         // Spring Securityで使用する認証情報を作成する
         Authentication authentication =
                 new UsernamePasswordAuthenticationToken(
@@ -169,14 +187,8 @@ public class AuthController {
         // 作成したSecurityContextを現在のSecurityContextとして設定する
         SecurityContextHolder.setContext(context);
 
-        // SecurityContextをSessionにも保存する
-        session.setAttribute(
-                // Session内でSecurityContextを保存するためのキー
-                "SPRING_SECURITY_CONTEXT",
-
-                // 保存するSecurityContext
-                context
-        );
+        new HttpSessionSecurityContextRepository()
+        .saveContext(context, request, response);
 
 
         // ログイン情報が正しい場合
@@ -223,7 +235,9 @@ public class AuthController {
     public String register(
             RegisterForm form,
             Model model,
-            HttpSession session) {
+            HttpSession session,
+            HttpServletRequest request,
+            HttpServletResponse response) {
 
         // 利用規約に同意していない場合
         if (!Boolean.TRUE.equals(
@@ -236,6 +250,7 @@ public class AuthController {
 
         // 入力されたユーザー情報を使ってユーザーを登録する
         service.registerUser(form);
+        request.changeSessionId();
 
         // 登録したユーザーのメールアドレスをSessionに保存する
         session.setAttribute(
@@ -270,14 +285,8 @@ public class AuthController {
         SecurityContextHolder.setContext(context);
 
 
-        // SecurityContextをSessionに保存する
-        session.setAttribute(
-                // Session内でSecurityContextを保存するためのキー
-                "SPRING_SECURITY_CONTEXT",
-
-                // 保存するSecurityContext
-                context
-        );
+        new HttpSessionSecurityContextRepository()
+        .saveContext(context, request, response);
 
 
         // 登録が完了したので、

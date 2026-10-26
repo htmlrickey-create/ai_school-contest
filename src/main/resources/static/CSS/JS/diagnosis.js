@@ -597,13 +597,16 @@ resultButton.addEventListener("click", async () => {
 
     try {
 
+        const csrfToken = document.querySelector('meta[name="_csrf"]').content;
+        const csrfHeader = document.querySelector('meta[name="_csrf_header"]').content;
         // JavaScriptからSpring Bootの/diagnosisへPOSTリクエストを送る
         const response = await fetch("/diagnosis", {
             method: "POST",
 
             // 送信するデータがJSON形式であることをサーバーに伝える
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                [csrfHeader]: csrfToken
             },
 
             // answersオブジェクトをJSON文字列に変換して送信する
