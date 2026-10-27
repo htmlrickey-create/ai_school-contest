@@ -18,6 +18,10 @@ import com.google.genai.types.GenerateContentResponse;
 // 学校情報を扱うEntity
 import com.example.ai_school.entity.School;
 
+import com.google.genai.types.GenerateContentConfig;
+import com.google.genai.types.ThinkingConfig;
+import com.google.genai.types.ThinkingLevel;
+import com.google.genai.types.ThinkingConfig;
 
 // Geminiを使ったAI処理を担当するService
 @Service
@@ -35,17 +39,30 @@ public class GeminiService {
 
 
 
-    // Geminiにプロンプトを送信して、AIから回答を受け取るメソッド
     public String ask(String prompt) {
 
-        // Gemini APIにモデル名とプロンプトを渡して回答を生成する
-        GenerateContentResponse response = client.models.generateContent(
-                "gemini-3.8-flash",
-                prompt,
-                null);
+        GenerateContentConfig config = GenerateContentConfig.builder()
+                .thinkingConfig(
+                        ThinkingConfig.builder()
+                                .thinkingLevel("LOW")
+                                .build()
+                )
+                .maxOutputTokens(1024)
+                .build();
 
-        // Geminiから返ってきたAIの回答本文を返す
-        return response.text();
+            long start = System.currentTimeMillis();
+
+            GenerateContentResponse response = client.models.generateContent(
+                    "gemini-3.8-flash",
+                    prompt,
+                    config
+            );
+
+            long elapsed = System.currentTimeMillis() - start;
+
+            System.out.println("Gemini API処理時間: " + elapsed + "ms");
+
+            return response.text();
     }
 
     // ユーザーの診断結果と学校情報を使ってAIにおすすめの高校を選んでもらうメソッド

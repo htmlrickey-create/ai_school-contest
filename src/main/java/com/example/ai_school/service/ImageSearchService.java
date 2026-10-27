@@ -43,7 +43,7 @@ public class ImageSearchService {
 
         // 画像検索を開始したことをコンソールに表示する
         System.out.println("画像検索開始: " + schoolName);
-
+        long start = System.currentTimeMillis();
         // SerpApiにGETリクエストを送信して画像検索を行う
         Map<String, Object> response = restClient.get()
                 .uri(uriBuilder -> uriBuilder
@@ -73,7 +73,8 @@ public class ImageSearchService {
                 .body(new ParameterizedTypeReference<Map<String, Object>>() {});
 
         // SerpApiから返ってきたレスポンスをコンソールに表示する
-        System.out.println("SerpApi response: " + response);
+        long elapsed = System.currentTimeMillis() - start;
+        System.out.println("SerpAPI画像検索時間: " + elapsed + "ms");
 
         // レスポンスが存在しない場合はnullを返す
         if (response == null) {

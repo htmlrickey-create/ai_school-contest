@@ -582,66 +582,80 @@ function showResult() {
 // asyncを付けることで、サーバーからの回答を待つことができる
 resultButton.addEventListener("click", async () => {
 
-    // デバッグ用：ボタンが押されたことを確認する
-    console.log("① 結果ボタンが押された");
+    console.log("① 診断開始");
 
-    // 結果確認画面を非表示にする
     result.classList.add("hidden");
 
-    // 診断中画面を取得する
-    const loading =
-        document.getElementById("diagnosisLoading");
-
-    // 診断中画面を表示する
+    const loading = document.getElementById("diagnosisLoading");
     loading.classList.remove("hidden");
 
     try {
+        const csrfToken =
+            document.querySelector('meta[name="_csrf"]').content;
 
-        // JavaScriptからSpring Bootの/diagnosisへPOSTリクエストを送る
+        const csrfHeader =
+            document.querySelector('meta[name="_csrf_header"]').content;
+
+        // 診断開始
         const response = await fetch("/diagnosis", {
             method: "POST",
-
-            // 送信するデータがJSON形式であることをサーバーに伝える
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                [csrfHeader]: csrfToken
             },
-
-            // answersオブジェクトをJSON文字列に変換して送信する
             body: JSON.stringify(answers)
         });
 
-        // デバッグ用：POST通信が完了したことを確認する
-        console.log("② POST完了");
-
-        // HTTPステータスコードを確認する
-        console.log("status:", response.status);
-
-        // HTTPステータスが200番台などの成功ではなかった場合
         if (!response.ok) {
-
-            // エラーを発生させてcatchへ移動する
-            throw new Error("HTTPエラー: " + response.status);
+            throw new Error("診断開始エラー: " + response.status);
         }
 
-        // デバッグ用：サーバーから正常なレスポンスが返ってきたことを確認する
-        console.log("③ 診断完了");
+        const data = await response.json();
+        const diagnosisId = data.diagnosisId;
 
-        // サーバーから返ってきたHTMLを文字列として取得する
-        const html = await response.text();
+        console.log("診断ID:", diagnosisId);
 
-        // 現在表示しているページ全体を
-        // サーバーから返ってきた診断結果HTMLに置き換える
-        document.body.innerHTML = html;
+        // 3秒ごとに診断状態を確認
+        while (true) {
+
+            await new Promise(resolve => setTimeout(resolve, 3000));
+
+            const statusResponse = await fetch(
+                "/diagnosis/status/" + encodeURIComponent(diagnosisId),
+                { cache: "no-store" }
+            );
+
+            if (!statusResponse.ok) {
+                throw new Error(
+                    "状態確認エラー: " + statusResponse.status
+                );
+            }
+
+            const statusData = await statusResponse.json();
+
+            console.log("診断状態:", statusData.status);
+
+            if (statusData.status === "COMPLETED") {
+
+                // 完了したら診断結果ページに移動
+                window.location.href =
+                    "/diagnosis/result/" + encodeURIComponent(diagnosisId);
+
+                return;
+            }
+
+            if (statusData.status === "FAILED") {
+                throw new Error("AI診断に失敗しました");
+            }
+        }
 
     } catch (error) {
 
-        // 通信などでエラーが発生した場合、コンソールにエラー内容を表示する
-        console.error("④ POSTエラー:", error);
+        console.error("診断エラー:", error);
 
-        // 診断中画面を非表示にする
         loading.classList.add("hidden");
-
-        // 結果確認画面を再び表示する
         result.classList.remove("hidden");
+
+        alert("診断中にエラーが発生しました。もう一度お試しください。");
     }
 });
